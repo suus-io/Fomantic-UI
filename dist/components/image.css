@@ -334,6 +334,148 @@ img.ui.bordered.image {
 
 
 /*******************************
-         Site Overrides
+         Theme Overrides
 *******************************/
 
+.ui.avatar.images .image,
+.ui.avatar.images img,
+.ui.avatar.images svg,
+.ui.avatar.image img,
+.ui.avatar.image svg,
+.ui.avatar.image {
+  margin-right: 0;
+}
+.avatar {
+  height: 1.16666667em !important;
+  width: 1.16666667em !important;
+  border: 0.075em solid #FFFFFF;
+  -webkit-box-shadow: 0 0 2px 0 rgba(96, 96, 96, 0.9);
+          box-shadow: 0 0 2px 0 rgba(96, 96, 96, 0.9);
+  display: table-cell;
+  border-radius: 1em;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  vertical-align: middle;
+}
+.avatar.image {
+  border: 3px solid white;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0.5px 3px 5px 0px rgba(0, 0, 0, 0.15), 0px 0px 0px 1px rgba(151, 151, 151, 0.21);
+          box-shadow: 0.5px 3px 5px 0px rgba(0, 0, 0, 0.15), 0px 0px 0px 1px rgba(151, 151, 151, 0.21);
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+.has-avatar::before {
+  content: ' ';
+  height: 1.16666667em;
+  width: 1.16666667em;
+  border: 0.1em solid #FFFFFF;
+  -webkit-box-shadow: 0 0 2px 0 rgba(96, 96, 96, 0.5);
+          box-shadow: 0 0 2px 0 rgba(96, 96, 96, 0.5);
+  display: inline-table;
+  border-radius: 1em;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  vertical-align: middle;
+}
+
+/* Some demo couleurs */
+.avatar.corps {
+  -webkit-transform: rotate(328deg);
+          transform: rotate(328deg);
+  height: 1.16666667em;
+  width: 1.16666667em;
+}
+.avatar.corps.small {
+  border-width: 1.5px;
+}
+.avatar.corps.borussia {
+  border-color: white;
+  background: -webkit-gradient(linear, left top, right top, color-stop(33%, #333), color-stop(33%, white), color-stop(66%, white), color-stop(66%, #333));
+  background: -webkit-linear-gradient(left, #333 33%, white 33%, white 66%, #333 66%);
+  background: linear-gradient(90deg, #333 33%, white 33%, white 66%, #333 66%);
+}
+.avatar.corps.testonia {
+  border-color: white;
+  background: -webkit-gradient(linear, left top, right top, color-stop(33%, #43CAFF), color-stop(33%, white), color-stop(66%, white), color-stop(66%, #437CFF));
+  background: -webkit-linear-gradient(left, #43CAFF 33%, white 33%, white 66%, #437CFF 66%);
+  background: linear-gradient(90deg, #43CAFF 33%, white 33%, white 66%, #437CFF 66%);
+}
+.avatar.corps.franconia {
+  border-color: white;
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, #dd8185), color-stop(50%, #8fc92e));
+  background: -webkit-linear-gradient(left, #dd8185 50%, #8fc92e 50%);
+  background: linear-gradient(90deg, #dd8185 50%, #8fc92e 50%);
+}
+.avatar.corps.vandalia {
+  border-color: white;
+  background: -webkit-gradient(linear, left top, right top, color-stop(25%, #fec541), color-stop(25%, #0338e2), color-stop(50%, #0338e2), color-stop(50%, #f90100), color-stop(75%, #f90100), color-stop(75%, #fec541));
+  background: -webkit-linear-gradient(left, #fec541 25%, #0338e2 25%, #0338e2 50%, #f90100 50%, #f90100 75%, #fec541 75%);
+  background: linear-gradient(90deg, #fec541 25%, #0338e2 25%, #0338e2 50%, #f90100 50%, #f90100 75%, #fec541 75%);
+}
+.avatar.corps.marcomannia {
+  border-color: white;
+  background: -webkit-gradient(linear, left top, right top, color-stop(33%, #d92e19), color-stop(33%, white), color-stop(66%, white), color-stop(66%, #222));
+  background: -webkit-linear-gradient(left, #d92e19 33%, white 33%, white 66%, #222 66%);
+  background: linear-gradient(90deg, #d92e19 33%, white 33%, white 66%, #222 66%);
+}
+.has-avatar.corps::before {
+  -webkit-transform: rotate(328deg);
+          transform: rotate(328deg);
+}
+.has-avatar.corps.borussia {
+  border-color: white;
+}
+.has-avatar.corps.borussia::before {
+  background: -webkit-gradient(linear, left top, right top, color-stop(33%, #222), color-stop(33%, white), color-stop(66%, white), color-stop(66%, #222));
+  background: -webkit-linear-gradient(left, #222 33%, white 33%, white 66%, #222 66%);
+  background: linear-gradient(90deg, #222 33%, white 33%, white 66%, #222 66%);
+}
+.has-avatar.corps.testonia {
+  border-color: white;
+}
+.has-avatar.corps.testonia::before {
+  background: -webkit-gradient(linear, left top, right top, color-stop(33%, #43CAFF), color-stop(33%, white), color-stop(66%, white), color-stop(66%, #437CFF));
+  background: -webkit-linear-gradient(left, #43CAFF 33%, white 33%, white 66%, #437CFF 66%);
+  background: linear-gradient(90deg, #43CAFF 33%, white 33%, white 66%, #437CFF 66%);
+}
+.has-avatar.corps.franconia {
+  border-color: white;
+}
+.has-avatar.corps.franconia::before {
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, #dd8185), color-stop(50%, #8fc92e));
+  background: -webkit-linear-gradient(left, #dd8185 50%, #8fc92e 50%);
+  background: linear-gradient(90deg, #dd8185 50%, #8fc92e 50%);
+}
+.has-avatar.corps.vandalia {
+  border-color: white;
+}
+.has-avatar.corps.vandalia::before {
+  background: -webkit-gradient(linear, left top, right top, color-stop(25%, #fec541), color-stop(25%, #0338e2), color-stop(50%, #0338e2), color-stop(50%, #f90100), color-stop(75%, #f90100), color-stop(75%, #fec541));
+  background: -webkit-linear-gradient(left, #fec541 25%, #0338e2 25%, #0338e2 50%, #f90100 50%, #f90100 75%, #fec541 75%);
+  background: linear-gradient(90deg, #fec541 25%, #0338e2 25%, #0338e2 50%, #f90100 50%, #f90100 75%, #fec541 75%);
+}
+.has-avatar.corps.marcomannia {
+  border-color: white;
+}
+.has-avatar.corps.marcomannia::before {
+  background: -webkit-gradient(linear, left top, right top, color-stop(33%, #d92e19), color-stop(33%, white), color-stop(66%, white), color-stop(66%, #222));
+  background: -webkit-linear-gradient(left, #d92e19 33%, white 33%, white 66%, #222 66%);
+  background: linear-gradient(90deg, #d92e19 33%, white 33%, white 66%, #222 66%);
+}
+.ui.tiny.images .image,
+.ui.tiny.images img,
+.ui.tiny.images svg,
+.ui.tiny.image {
+  font-size: 5rem;
+}
+@media screen and (max-width: 768px) {
+  .ui.tiny.images .image,
+  .ui.tiny.images img,
+  .ui.tiny.images svg,
+  .ui.tiny.image {
+    width: 6em;
+  }
+}

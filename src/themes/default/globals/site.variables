@@ -1352,7 +1352,7 @@
 @formErrorColor: @negativeTextColor;
 @formErrorBorder: @negativeBorderColor;
 @formErrorBackground: @negativeBackgroundColor;
-@formErrorLabelBackground: darken(@formErrorBorder, -8);
+@formErrorLabelBackground: darken((@negativeBorderColor), -8);
 @transparentFormErrorColor: @formErrorColor;
 @transparentFormErrorBackground: @formErrorBackground;
 

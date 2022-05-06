@@ -153,3 +153,22 @@ span.ui.massive.text {
          Theme Overrides
 *******************************/
 
+
+
+/*******************************
+            Text
+*******************************/
+
+
+/*-------------------
+       Element
+--------------------*/
+
+code.template-code {
+  font-size: 10px;
+  font-weight: normal;
+  display: block;
+  background: #eee;
+  padding: 0.5em;
+  border: 1px solid #ddd;
+}

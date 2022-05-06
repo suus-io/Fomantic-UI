@@ -28,7 +28,7 @@
 ---------------------*/
 
 .ui.form > p {
-  margin: 1em 0;
+  margin: 1.5em 0em;
 }
 
 /*--------------------
@@ -37,7 +37,7 @@
 
 .ui.form .field {
   clear: both;
-  margin: 0 0 1em;
+  margin: 2px 2px 1.5em;
 }
 .ui.form .fields .fields,
 .ui.form .field:last-child,
@@ -55,11 +55,13 @@
 
 .ui.form .field > label {
   display: block;
-  margin: 0 0 0.28571429rem 0;
-  color: rgba(0, 0, 0, 0.87);
-  font-size: 0.92857143em;
-  font-weight: bold;
-  text-transform: none;
+  margin: 0.5em 0;
+  font-size: 0.85714286rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.ui.form .field > label:not(.button) {
+  color: #ADADAD;
 }
 
 /*--------------------
@@ -68,9 +70,11 @@
 
 .ui.form textarea,
 .ui.form input:not([type]),
+.ui.form input[type="color"],
 .ui.form input[type="date"],
 .ui.form input[type="datetime-local"],
 .ui.form input[type="email"],
+.ui.form input[type="month"],
 .ui.form input[type="number"],
 .ui.form input[type="password"],
 .ui.form input[type="search"],
@@ -78,7 +82,8 @@
 .ui.form input[type="time"],
 .ui.form input[type="text"],
 .ui.form input[type="file"],
-.ui.form input[type="url"] {
+.ui.form input[type="url"],
+.ui.form input[type="week"] {
   width: 100%;
   vertical-align: top;
 }
@@ -89,9 +94,11 @@
   height: 1.21428571em;
 }
 .ui.form input:not([type]),
+.ui.form input[type="color"],
 .ui.form input[type="date"],
 .ui.form input[type="datetime-local"],
 .ui.form input[type="email"],
+.ui.form input[type="month"],
 .ui.form input[type="number"],
 .ui.form input[type="password"],
 .ui.form input[type="search"],
@@ -99,23 +106,34 @@
 .ui.form input[type="time"],
 .ui.form input[type="text"],
 .ui.form input[type="file"],
-.ui.form input[type="url"] {
+.ui.form input[type="url"],
+.ui.form input[type="week"] {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin: 0;
   outline: none;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   line-height: 1.21428571em;
-  padding: 0.67857143em 1em;
-  font-size: 1em;
+  padding: 0.2em 0.5em 0.14285714rem 0.5em;
+  font-size: 1.28571429em;
   background: #FFFFFF;
-  border: 1px solid rgba(34, 36, 38, 0.15);
-  color: rgba(0, 0, 0, 0.87);
-  border-radius: 0.28571429rem;
-  -webkit-box-shadow: 0 0 0 0 transparent inset;
-          box-shadow: 0 0 0 0 transparent inset;
-  -webkit-transition: color 0.1s ease, border-color 0.1s ease;
-  transition: color 0.1s ease, border-color 0.1s ease;
+  border: none;
+  color: #545454;
+  border-radius: 0;
+  -webkit-box-shadow: 7px 7px 0px -6px #bbbbbb, -7px 7px 0px -6px #bbbbbb;
+          box-shadow: 7px 7px 0px -6px #bbbbbb, -7px 7px 0px -6px #bbbbbb;
+  -webkit-transition: color 0.1s ease, border 0.1s ease box-shadow 0.1s ease;
+  transition: color 0.1s ease, border 0.1s ease box-shadow 0.1s ease;
+}
+.ui.form input[type="color"] {
+  padding: initial;
+}
+.ui.form input::-webkit-calendar-picker-indicator {
+  padding: 0;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
 }
 
 /* Text Area */
@@ -126,17 +144,17 @@
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   padding: 0.78571429em 1em;
   background: #FFFFFF;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid #bbbbbb;
   outline: none;
-  color: rgba(0, 0, 0, 0.87);
-  border-radius: 0.28571429rem;
-  -webkit-box-shadow: 0 0 0 0 transparent inset;
-          box-shadow: 0 0 0 0 transparent inset;
-  -webkit-transition: color 0.1s ease, border-color 0.1s ease;
-  transition: color 0.1s ease, border-color 0.1s ease;
-  font-size: 1em;
+  color: #545454;
+  border-radius: 0;
+  -webkit-box-shadow: 7px 7px 0px -6px #bbbbbb, -7px 7px 0px -6px #bbbbbb;
+          box-shadow: 7px 7px 0px -6px #bbbbbb, -7px 7px 0px -6px #bbbbbb;
+  -webkit-transition: color 0.1s ease, border 0.1s ease box-shadow 0.1s ease;
+  transition: color 0.1s ease, border 0.1s ease box-shadow 0.1s ease;
+  font-size: 1.28571429em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  line-height: 1.2857;
+  line-height: 1.2857em;
   resize: vertical;
 }
 .ui.form textarea:not([rows]) {
@@ -146,7 +164,7 @@
 }
 .ui.form textarea,
 .ui.form input[type="checkbox"] {
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 /*--------------------
@@ -182,7 +200,7 @@
 .ui.form .field .transparent.input:not(.icon) input,
 .ui.form .field input.transparent,
 .ui.form .field textarea.transparent {
-  padding: 0.67857143em 1em;
+  padding: 0.2em 0.5em 0.14285714rem 0.5em;
 }
 .ui.form .field input.transparent,
 .ui.form .field textarea.transparent {
@@ -209,14 +227,14 @@
   height: auto;
   width: 100%;
   background: #FFFFFF;
-  border: 1px solid rgba(34, 36, 38, 0.15);
-  border-radius: 0.28571429rem;
-  -webkit-box-shadow: 0 0 0 0 transparent inset;
-          box-shadow: 0 0 0 0 transparent inset;
+  border: none;
+  border-radius: 0;
+  -webkit-box-shadow: 7px 7px 0px -6px #bbbbbb, -7px 7px 0px -6px #bbbbbb;
+          box-shadow: 7px 7px 0px -6px #bbbbbb, -7px 7px 0px -6px #bbbbbb;
   padding: 0.62em 1em;
-  color: rgba(0, 0, 0, 0.87);
-  -webkit-transition: color 0.1s ease, border-color 0.1s ease;
-  transition: color 0.1s ease, border-color 0.1s ease;
+  color: #545454;
+  -webkit-transition: color 0.1s ease, border 0.1s ease box-shadow 0.1s ease;
+  transition: color 0.1s ease, border 0.1s ease box-shadow 0.1s ease;
 }
 
 /*--------------------
@@ -225,7 +243,7 @@
 
 
 /* Block */
-.ui.form .field > .selection.dropdown {
+.ui.form .field > .selection.dropdown:not(.compact) {
   min-width: auto;
   width: 100%;
 }
@@ -318,16 +336,19 @@
 .ui.form .field .prompt.label {
   white-space: normal;
   background: #FFFFFF !important;
-  border: 1px solid #E0B4B4 !important;
-  color: #9F3A38 !important;
+  border: 1px solid none !important;
+  color: #545454 !important;
+}
+.ui.form .field .prompt.label li::before {
+  color: #545454;
 }
 .ui.form .inline.fields .field .prompt,
 .ui.form .inline.field .prompt {
   vertical-align: top;
-  margin: -0.25em 0 -0.5em 0.5em;
+  margin: -0.25em 0em -0.5em 0.5em;
 }
-.ui.form .inline.fields .field .prompt:before,
-.ui.form .inline.field .prompt:before {
+.ui.form .inline.fields .field .prompt::before,
+.ui.form .inline.field .prompt::before {
   border-width: 0 0 1px 1px;
   bottom: auto;
   right: auto;
@@ -365,23 +386,23 @@
 
 /* browsers require these rules separate */
 .ui.form ::-webkit-input-placeholder {
-  color: rgba(191, 191, 191, 0.87);
+  color: #ffffff;
 }
 .ui.form :-ms-input-placeholder {
-  color: rgba(191, 191, 191, 0.87) !important;
+  color: #ffffff !important;
 }
 .ui.form ::-moz-placeholder {
-  color: rgba(191, 191, 191, 0.87);
+  color: #ffffff;
   opacity: 1;
 }
 .ui.form :focus::-webkit-input-placeholder {
-  color: rgba(115, 115, 115, 0.87);
+  color: #c7c7c7;
 }
 .ui.form :focus:-ms-input-placeholder {
-  color: rgba(115, 115, 115, 0.87) !important;
+  color: #c7c7c7 !important;
 }
 .ui.form :focus::-moz-placeholder {
-  color: rgba(115, 115, 115, 0.87);
+  color: #c7c7c7;
 }
 
 /*--------------------
@@ -389,9 +410,11 @@
 ---------------------*/
 
 .ui.form input:not([type]):focus,
+.ui.form input[type="color"]:focus,
 .ui.form input[type="date"]:focus,
 .ui.form input[type="datetime-local"]:focus,
 .ui.form input[type="email"]:focus,
+.ui.form input[type="month"]:focus,
 .ui.form input[type="number"]:focus,
 .ui.form input[type="password"]:focus,
 .ui.form input[type="search"]:focus,
@@ -399,18 +422,21 @@
 .ui.form input[type="time"]:focus,
 .ui.form input[type="text"]:focus,
 .ui.form input[type="file"]:focus,
-.ui.form input[type="url"]:focus {
-  color: rgba(0, 0, 0, 0.95);
-  border-color: #85B7D9;
-  border-radius: 0.28571429rem;
+.ui.form input[type="url"]:focus,
+.ui.form input[type="week"]:focus {
+  color: #000000;
+  border-color: transparent;
+  border-radius: 0;
   background: #FFFFFF;
-  -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
-          box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
+  -webkit-box-shadow: 7px 7px 0px -6px #54C8FF, -7px 7px 0px -6px #54C8FF;
+          box-shadow: 7px 7px 0px -6px #54C8FF, -7px 7px 0px -6px #54C8FF;
 }
 .ui.form .ui.action.input:not([class*="left action"]) input:not([type]):focus,
+.ui.form .ui.action.input:not([class*="left action"]) input[type="color"]:focus,
 .ui.form .ui.action.input:not([class*="left action"]) input[type="date"]:focus,
 .ui.form .ui.action.input:not([class*="left action"]) input[type="datetime-local"]:focus,
 .ui.form .ui.action.input:not([class*="left action"]) input[type="email"]:focus,
+.ui.form .ui.action.input:not([class*="left action"]) input[type="month"]:focus,
 .ui.form .ui.action.input:not([class*="left action"]) input[type="number"]:focus,
 .ui.form .ui.action.input:not([class*="left action"]) input[type="password"]:focus,
 .ui.form .ui.action.input:not([class*="left action"]) input[type="search"]:focus,
@@ -418,14 +444,17 @@
 .ui.form .ui.action.input:not([class*="left action"]) input[type="time"]:focus,
 .ui.form .ui.action.input:not([class*="left action"]) input[type="text"]:focus,
 .ui.form .ui.action.input:not([class*="left action"]) input[type="file"]:focus,
-.ui.form .ui.action.input:not([class*="left action"]) input[type="url"]:focus {
+.ui.form .ui.action.input:not([class*="left action"]) input[type="url"]:focus,
+.ui.form .ui.action.input:not([class*="left action"]) input[type="week"]:focus {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 .ui.form .ui[class*="left action"].input input:not([type]),
+.ui.form .ui[class*="left action"].input input[type="color"],
 .ui.form .ui[class*="left action"].input input[type="date"],
 .ui.form .ui[class*="left action"].input input[type="datetime-local"],
 .ui.form .ui[class*="left action"].input input[type="email"],
+.ui.form .ui[class*="left action"].input input[type="month"],
 .ui.form .ui[class*="left action"].input input[type="number"],
 .ui.form .ui[class*="left action"].input input[type="password"],
 .ui.form .ui[class*="left action"].input input[type="search"],
@@ -433,18 +462,24 @@
 .ui.form .ui[class*="left action"].input input[type="time"],
 .ui.form .ui[class*="left action"].input input[type="text"],
 .ui.form .ui[class*="left action"].input input[type="file"],
-.ui.form .ui[class*="left action"].input input[type="url"] {
+.ui.form .ui[class*="left action"].input input[type="url"],
+.ui.form .ui[class*="left action"].input input[type="week"] {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
 }
 .ui.form textarea:focus {
-  color: rgba(0, 0, 0, 0.95);
-  border-color: #85B7D9;
-  border-radius: 0.28571429rem;
+  color: #000000;
+  border-color: transparent;
+  border-radius: 0;
   background: #FFFFFF;
-  -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
-          box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   -webkit-appearance: none;
+}
+
+/* Focus */
+.ui.form input:focus::-webkit-calendar-picker-indicator {
+  opacity: 1;
 }
 
 /*--------------------
@@ -486,7 +521,7 @@
 .ui.ui.form .field.error .ui.label:not(.corner),
 .ui.ui.form .fields.error .field .input,
 .ui.ui.form .field.error .input {
-  color: #9F3A38;
+  color: #545454;
 }
 .ui.form .fields.error .field .ui.label,
 .ui.form .field.error .ui.label {
@@ -494,15 +529,17 @@
 }
 .ui.form .fields.error .field .corner.label,
 .ui.form .field.error .corner.label {
-  border-color: #9F3A38;
+  border-color: #545454;
   color: #FFFFFF;
 }
 .ui.form .fields.error .field textarea,
 .ui.form .fields.error .field select,
 .ui.form .fields.error .field input:not([type]),
+.ui.form .fields.error .field input[type="color"],
 .ui.form .fields.error .field input[type="date"],
 .ui.form .fields.error .field input[type="datetime-local"],
 .ui.form .fields.error .field input[type="email"],
+.ui.form .fields.error .field input[type="month"],
 .ui.form .fields.error .field input[type="number"],
 .ui.form .fields.error .field input[type="password"],
 .ui.form .fields.error .field input[type="search"],
@@ -511,12 +548,15 @@
 .ui.form .fields.error .field input[type="text"],
 .ui.form .fields.error .field input[type="file"],
 .ui.form .fields.error .field input[type="url"],
+.ui.form .fields.error .field input[type="week"],
 .ui.form .field.error textarea,
 .ui.form .field.error select,
 .ui.form .field.error input:not([type]),
+.ui.form .field.error input[type="color"],
 .ui.form .field.error input[type="date"],
 .ui.form .field.error input[type="datetime-local"],
 .ui.form .field.error input[type="email"],
+.ui.form .field.error input[type="month"],
 .ui.form .field.error input[type="number"],
 .ui.form .field.error input[type="password"],
 .ui.form .field.error input[type="search"],
@@ -524,20 +564,52 @@
 .ui.form .field.error input[type="time"],
 .ui.form .field.error input[type="text"],
 .ui.form .field.error input[type="file"],
-.ui.form .field.error input[type="url"] {
-  color: #9F3A38;
-  background: #FFF6F6;
-  border-color: #E0B4B4;
-  border-radius: '';
-  -webkit-box-shadow: none;
-          box-shadow: none;
+.ui.form .field.error input[type="url"],
+.ui.form .field.error input[type="week"] {
+  color: #545454;
+  background: #FFFFFF;
+  border-color: none;
+  border-radius: 0;
+  -webkit-box-shadow: 7px 7px 0px -6px #FF695E, -7px 7px 0px -6px #FF695E;
+          box-shadow: 7px 7px 0px -6px #FF695E, -7px 7px 0px -6px #FF695E;
+}
+.ui.form .field input:not(:-moz-placeholder-shown):invalid {
+  color: #545454;
+  background: #FFFFFF;
+  border-color: none;
+  border-radius: 0;
+  box-shadow: 7px 7px 0px -6px #FF695E, -7px 7px 0px -6px #FF695E;
+}
+.ui.form .field input:not(:-ms-input-placeholder):invalid {
+  color: #545454;
+  background: #FFFFFF;
+  border-color: none;
+  border-radius: 0;
+  box-shadow: 7px 7px 0px -6px #FF695E, -7px 7px 0px -6px #FF695E;
+}
+.ui.form .field input:not(:placeholder-shown):invalid {
+  color: #545454;
+  background: #FFFFFF;
+  border-color: none;
+  border-radius: 0;
+  -webkit-box-shadow: 7px 7px 0px -6px #FF695E, -7px 7px 0px -6px #FF695E;
+          box-shadow: 7px 7px 0px -6px #FF695E, -7px 7px 0px -6px #FF695E;
+}
+.ui.form .field input:not(:-ms-input-placeholder):invalid {
+  color: #545454;
+  background: #FFFFFF;
+  border-color: none;
+  border-radius: 0;
+  box-shadow: 7px 7px 0px -6px #FF695E, -7px 7px 0px -6px #FF695E;
 }
 .ui.form .field.error textarea:focus,
 .ui.form .field.error select:focus,
 .ui.form .field.error input:not([type]):focus,
+.ui.form .field.error input[type="color"]:focus,
 .ui.form .field.error input[type="date"]:focus,
 .ui.form .field.error input[type="datetime-local"]:focus,
 .ui.form .field.error input[type="email"]:focus,
+.ui.form .field.error input[type="month"]:focus,
 .ui.form .field.error input[type="number"]:focus,
 .ui.form .field.error input[type="password"]:focus,
 .ui.form .field.error input[type="search"]:focus,
@@ -545,12 +617,13 @@
 .ui.form .field.error input[type="time"]:focus,
 .ui.form .field.error input[type="text"]:focus,
 .ui.form .field.error input[type="file"]:focus,
-.ui.form .field.error input[type="url"]:focus {
-  background: #FFF6F6;
-  border-color: #E0B4B4;
-  color: #9F3A38;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+.ui.form .field.error input[type="url"]:focus,
+.ui.form .field.error input[type="week"]:focus {
+  background: #FFFFFF;
+  border-color: none;
+  color: #000000;
+  -webkit-box-shadow: 7px 7px 0px -6px #FF695E, -7px 7px 0px -6px #FF695E;
+          box-shadow: 7px 7px 0px -6px #FF695E, -7px 7px 0px -6px #FF695E;
 }
 
 /* Preserve Native Select Stylings */
@@ -568,8 +641,8 @@
 .ui.form .field.error .transparent.input textarea,
 .ui.form .field.error input.transparent,
 .ui.form .field.error textarea.transparent {
-  background-color: #FFF6F6 !important;
-  color: #9F3A38 !important;
+  background-color: #FFFFFF !important;
+  color: #545454 !important;
 }
 
 /* Autofilled */
@@ -581,22 +654,22 @@
 
 /* Placeholder */
 .ui.form .error ::-webkit-input-placeholder {
-  color: #e7bdbc;
+  color: #bababa;
 }
 .ui.form .error :-ms-input-placeholder {
-  color: #e7bdbc !important;
+  color: #bababa !important;
 }
 .ui.form .error ::-moz-placeholder {
-  color: #e7bdbc;
+  color: #bababa;
 }
 .ui.form .error :focus::-webkit-input-placeholder {
-  color: #da9796;
+  color: #a1a1a1;
 }
 .ui.form .error :focus:-ms-input-placeholder {
-  color: #da9796 !important;
+  color: #a1a1a1 !important;
 }
 .ui.form .error :focus::-moz-placeholder {
-  color: #da9796;
+  color: #a1a1a1;
 }
 
 /*------------------
@@ -608,20 +681,20 @@
 .ui.form .field.error .ui.dropdown,
 .ui.form .field.error .ui.dropdown > .text,
 .ui.form .field.error .ui.dropdown .item {
-  background: #FFF6F6;
-  color: #9F3A38;
+  background: #FFFFFF;
+  color: #545454;
 }
 .ui.form .fields.error .field .ui.dropdown,
 .ui.form .field.error .ui.dropdown {
-  border-color: #E0B4B4 !important;
+  border-color: none !important;
 }
 .ui.form .fields.error .field .ui.dropdown:hover,
 .ui.form .field.error .ui.dropdown:hover {
-  border-color: #E0B4B4 !important;
+  border-color: none !important;
 }
 .ui.form .fields.error .field .ui.dropdown:hover .menu,
 .ui.form .field.error .ui.dropdown:hover .menu {
-  border-color: #E0B4B4;
+  border-color: none;
 }
 .ui.form .fields.error .field .ui.multiple.selection.dropdown > .label,
 .ui.form .field.error .ui.multiple.selection.dropdown > .label {
@@ -652,23 +725,17 @@
     ---------------------*/
 
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) label,
-.ui.form .field.error .checkbox:not(.toggle):not(.slider) label,
-.ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box,
-.ui.form .field.error .checkbox:not(.toggle):not(.slider) .box {
-  color: #9F3A38;
+.ui.form .field.error .checkbox:not(.toggle):not(.slider) label {
+  color: #545454;
 }
-.ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) label:before,
-.ui.form .field.error .checkbox:not(.toggle):not(.slider) label:before,
-.ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box:before,
-.ui.form .field.error .checkbox:not(.toggle):not(.slider) .box:before {
-  background: #FFF6F6;
-  border-color: #E0B4B4;
+.ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) label::before,
+.ui.form .field.error .checkbox:not(.toggle):not(.slider) label::before {
+  background: #FFFFFF;
+  border-color: none;
 }
-.ui.form .fields.error .field .checkbox label:after,
-.ui.form .field.error .checkbox label:after,
-.ui.form .fields.error .field .checkbox .box:after,
-.ui.form .field.error .checkbox .box:after {
-  color: #9F3A38;
+.ui.form .fields.error .field .checkbox label::after,
+.ui.form .field.error .checkbox label::after {
+  color: #545454;
 }
 .ui.inverted.form .fields.error .field label,
 .ui.inverted.form .error.field label {
@@ -723,9 +790,11 @@
 .ui.form .fields.info .field textarea,
 .ui.form .fields.info .field select,
 .ui.form .fields.info .field input:not([type]),
+.ui.form .fields.info .field input[type="color"],
 .ui.form .fields.info .field input[type="date"],
 .ui.form .fields.info .field input[type="datetime-local"],
 .ui.form .fields.info .field input[type="email"],
+.ui.form .fields.info .field input[type="month"],
 .ui.form .fields.info .field input[type="number"],
 .ui.form .fields.info .field input[type="password"],
 .ui.form .fields.info .field input[type="search"],
@@ -734,12 +803,15 @@
 .ui.form .fields.info .field input[type="text"],
 .ui.form .fields.info .field input[type="file"],
 .ui.form .fields.info .field input[type="url"],
+.ui.form .fields.info .field input[type="week"],
 .ui.form .field.info textarea,
 .ui.form .field.info select,
 .ui.form .field.info input:not([type]),
+.ui.form .field.info input[type="color"],
 .ui.form .field.info input[type="date"],
 .ui.form .field.info input[type="datetime-local"],
 .ui.form .field.info input[type="email"],
+.ui.form .field.info input[type="month"],
 .ui.form .field.info input[type="number"],
 .ui.form .field.info input[type="password"],
 .ui.form .field.info input[type="search"],
@@ -747,7 +819,8 @@
 .ui.form .field.info input[type="time"],
 .ui.form .field.info input[type="text"],
 .ui.form .field.info input[type="file"],
-.ui.form .field.info input[type="url"] {
+.ui.form .field.info input[type="url"],
+.ui.form .field.info input[type="week"] {
   color: #276F86;
   background: #F8FFFF;
   border-color: #A9D5DE;
@@ -758,9 +831,11 @@
 .ui.form .field.info textarea:focus,
 .ui.form .field.info select:focus,
 .ui.form .field.info input:not([type]):focus,
+.ui.form .field.info input[type="color"]:focus,
 .ui.form .field.info input[type="date"]:focus,
 .ui.form .field.info input[type="datetime-local"]:focus,
 .ui.form .field.info input[type="email"]:focus,
+.ui.form .field.info input[type="month"]:focus,
 .ui.form .field.info input[type="number"]:focus,
 .ui.form .field.info input[type="password"]:focus,
 .ui.form .field.info input[type="search"]:focus,
@@ -768,7 +843,8 @@
 .ui.form .field.info input[type="time"]:focus,
 .ui.form .field.info input[type="text"]:focus,
 .ui.form .field.info input[type="file"]:focus,
-.ui.form .field.info input[type="url"]:focus {
+.ui.form .field.info input[type="url"]:focus,
+.ui.form .field.info input[type="week"]:focus {
   background: #F8FFFF;
   border-color: #A9D5DE;
   color: #276F86;
@@ -875,22 +951,16 @@
     ---------------------*/
 
 .ui.form .fields.info .field .checkbox:not(.toggle):not(.slider) label,
-.ui.form .field.info .checkbox:not(.toggle):not(.slider) label,
-.ui.form .fields.info .field .checkbox:not(.toggle):not(.slider) .box,
-.ui.form .field.info .checkbox:not(.toggle):not(.slider) .box {
+.ui.form .field.info .checkbox:not(.toggle):not(.slider) label {
   color: #276F86;
 }
-.ui.form .fields.info .field .checkbox:not(.toggle):not(.slider) label:before,
-.ui.form .field.info .checkbox:not(.toggle):not(.slider) label:before,
-.ui.form .fields.info .field .checkbox:not(.toggle):not(.slider) .box:before,
-.ui.form .field.info .checkbox:not(.toggle):not(.slider) .box:before {
+.ui.form .fields.info .field .checkbox:not(.toggle):not(.slider) label::before,
+.ui.form .field.info .checkbox:not(.toggle):not(.slider) label::before {
   background: #F8FFFF;
   border-color: #A9D5DE;
 }
-.ui.form .fields.info .field .checkbox label:after,
-.ui.form .field.info .checkbox label:after,
-.ui.form .fields.info .field .checkbox .box:after,
-.ui.form .field.info .checkbox .box:after {
+.ui.form .fields.info .field .checkbox label::after,
+.ui.form .field.info .checkbox label::after {
   color: #276F86;
 }
 .ui.inverted.form .fields.info .field label,
@@ -946,9 +1016,11 @@
 .ui.form .fields.success .field textarea,
 .ui.form .fields.success .field select,
 .ui.form .fields.success .field input:not([type]),
+.ui.form .fields.success .field input[type="color"],
 .ui.form .fields.success .field input[type="date"],
 .ui.form .fields.success .field input[type="datetime-local"],
 .ui.form .fields.success .field input[type="email"],
+.ui.form .fields.success .field input[type="month"],
 .ui.form .fields.success .field input[type="number"],
 .ui.form .fields.success .field input[type="password"],
 .ui.form .fields.success .field input[type="search"],
@@ -957,12 +1029,15 @@
 .ui.form .fields.success .field input[type="text"],
 .ui.form .fields.success .field input[type="file"],
 .ui.form .fields.success .field input[type="url"],
+.ui.form .fields.success .field input[type="week"],
 .ui.form .field.success textarea,
 .ui.form .field.success select,
 .ui.form .field.success input:not([type]),
+.ui.form .field.success input[type="color"],
 .ui.form .field.success input[type="date"],
 .ui.form .field.success input[type="datetime-local"],
 .ui.form .field.success input[type="email"],
+.ui.form .field.success input[type="month"],
 .ui.form .field.success input[type="number"],
 .ui.form .field.success input[type="password"],
 .ui.form .field.success input[type="search"],
@@ -970,7 +1045,8 @@
 .ui.form .field.success input[type="time"],
 .ui.form .field.success input[type="text"],
 .ui.form .field.success input[type="file"],
-.ui.form .field.success input[type="url"] {
+.ui.form .field.success input[type="url"],
+.ui.form .field.success input[type="week"] {
   color: #2C662D;
   background: #FCFFF5;
   border-color: #A3C293;
@@ -981,9 +1057,11 @@
 .ui.form .field.success textarea:focus,
 .ui.form .field.success select:focus,
 .ui.form .field.success input:not([type]):focus,
+.ui.form .field.success input[type="color"]:focus,
 .ui.form .field.success input[type="date"]:focus,
 .ui.form .field.success input[type="datetime-local"]:focus,
 .ui.form .field.success input[type="email"]:focus,
+.ui.form .field.success input[type="month"]:focus,
 .ui.form .field.success input[type="number"]:focus,
 .ui.form .field.success input[type="password"]:focus,
 .ui.form .field.success input[type="search"]:focus,
@@ -991,7 +1069,8 @@
 .ui.form .field.success input[type="time"]:focus,
 .ui.form .field.success input[type="text"]:focus,
 .ui.form .field.success input[type="file"]:focus,
-.ui.form .field.success input[type="url"]:focus {
+.ui.form .field.success input[type="url"]:focus,
+.ui.form .field.success input[type="week"]:focus {
   background: #FCFFF5;
   border-color: #A3C293;
   color: #2C662D;
@@ -1098,22 +1177,16 @@
     ---------------------*/
 
 .ui.form .fields.success .field .checkbox:not(.toggle):not(.slider) label,
-.ui.form .field.success .checkbox:not(.toggle):not(.slider) label,
-.ui.form .fields.success .field .checkbox:not(.toggle):not(.slider) .box,
-.ui.form .field.success .checkbox:not(.toggle):not(.slider) .box {
+.ui.form .field.success .checkbox:not(.toggle):not(.slider) label {
   color: #2C662D;
 }
-.ui.form .fields.success .field .checkbox:not(.toggle):not(.slider) label:before,
-.ui.form .field.success .checkbox:not(.toggle):not(.slider) label:before,
-.ui.form .fields.success .field .checkbox:not(.toggle):not(.slider) .box:before,
-.ui.form .field.success .checkbox:not(.toggle):not(.slider) .box:before {
+.ui.form .fields.success .field .checkbox:not(.toggle):not(.slider) label::before,
+.ui.form .field.success .checkbox:not(.toggle):not(.slider) label::before {
   background: #FCFFF5;
   border-color: #A3C293;
 }
-.ui.form .fields.success .field .checkbox label:after,
-.ui.form .field.success .checkbox label:after,
-.ui.form .fields.success .field .checkbox .box:after,
-.ui.form .field.success .checkbox .box:after {
+.ui.form .fields.success .field .checkbox label::after,
+.ui.form .field.success .checkbox label::after {
   color: #2C662D;
 }
 .ui.inverted.form .fields.success .field label,
@@ -1169,9 +1242,11 @@
 .ui.form .fields.warning .field textarea,
 .ui.form .fields.warning .field select,
 .ui.form .fields.warning .field input:not([type]),
+.ui.form .fields.warning .field input[type="color"],
 .ui.form .fields.warning .field input[type="date"],
 .ui.form .fields.warning .field input[type="datetime-local"],
 .ui.form .fields.warning .field input[type="email"],
+.ui.form .fields.warning .field input[type="month"],
 .ui.form .fields.warning .field input[type="number"],
 .ui.form .fields.warning .field input[type="password"],
 .ui.form .fields.warning .field input[type="search"],
@@ -1180,12 +1255,15 @@
 .ui.form .fields.warning .field input[type="text"],
 .ui.form .fields.warning .field input[type="file"],
 .ui.form .fields.warning .field input[type="url"],
+.ui.form .fields.warning .field input[type="week"],
 .ui.form .field.warning textarea,
 .ui.form .field.warning select,
 .ui.form .field.warning input:not([type]),
+.ui.form .field.warning input[type="color"],
 .ui.form .field.warning input[type="date"],
 .ui.form .field.warning input[type="datetime-local"],
 .ui.form .field.warning input[type="email"],
+.ui.form .field.warning input[type="month"],
 .ui.form .field.warning input[type="number"],
 .ui.form .field.warning input[type="password"],
 .ui.form .field.warning input[type="search"],
@@ -1193,7 +1271,8 @@
 .ui.form .field.warning input[type="time"],
 .ui.form .field.warning input[type="text"],
 .ui.form .field.warning input[type="file"],
-.ui.form .field.warning input[type="url"] {
+.ui.form .field.warning input[type="url"],
+.ui.form .field.warning input[type="week"] {
   color: #573A08;
   background: #FFFAF3;
   border-color: #C9BA9B;
@@ -1204,9 +1283,11 @@
 .ui.form .field.warning textarea:focus,
 .ui.form .field.warning select:focus,
 .ui.form .field.warning input:not([type]):focus,
+.ui.form .field.warning input[type="color"]:focus,
 .ui.form .field.warning input[type="date"]:focus,
 .ui.form .field.warning input[type="datetime-local"]:focus,
 .ui.form .field.warning input[type="email"]:focus,
+.ui.form .field.warning input[type="month"]:focus,
 .ui.form .field.warning input[type="number"]:focus,
 .ui.form .field.warning input[type="password"]:focus,
 .ui.form .field.warning input[type="search"]:focus,
@@ -1214,7 +1295,8 @@
 .ui.form .field.warning input[type="time"]:focus,
 .ui.form .field.warning input[type="text"]:focus,
 .ui.form .field.warning input[type="file"]:focus,
-.ui.form .field.warning input[type="url"]:focus {
+.ui.form .field.warning input[type="url"]:focus,
+.ui.form .field.warning input[type="week"]:focus {
   background: #FFFAF3;
   border-color: #C9BA9B;
   color: #573A08;
@@ -1321,22 +1403,16 @@
     ---------------------*/
 
 .ui.form .fields.warning .field .checkbox:not(.toggle):not(.slider) label,
-.ui.form .field.warning .checkbox:not(.toggle):not(.slider) label,
-.ui.form .fields.warning .field .checkbox:not(.toggle):not(.slider) .box,
-.ui.form .field.warning .checkbox:not(.toggle):not(.slider) .box {
+.ui.form .field.warning .checkbox:not(.toggle):not(.slider) label {
   color: #573A08;
 }
-.ui.form .fields.warning .field .checkbox:not(.toggle):not(.slider) label:before,
-.ui.form .field.warning .checkbox:not(.toggle):not(.slider) label:before,
-.ui.form .fields.warning .field .checkbox:not(.toggle):not(.slider) .box:before,
-.ui.form .field.warning .checkbox:not(.toggle):not(.slider) .box:before {
+.ui.form .fields.warning .field .checkbox:not(.toggle):not(.slider) label::before,
+.ui.form .field.warning .checkbox:not(.toggle):not(.slider) label::before {
   background: #FFFAF3;
   border-color: #C9BA9B;
 }
-.ui.form .fields.warning .field .checkbox label:after,
-.ui.form .field.warning .checkbox label:after,
-.ui.form .fields.warning .field .checkbox .box:after,
-.ui.form .field.warning .checkbox .box:after {
+.ui.form .fields.warning .field .checkbox label::after,
+.ui.form .field.warning .checkbox label::after {
   color: #573A08;
 }
 .ui.inverted.form .fields.warning .field label,
@@ -1371,7 +1447,7 @@
   cursor: default;
   pointer-events: none;
 }
-.ui.loading.form:before {
+.ui.loading.form::before {
   position: absolute;
   content: '';
   top: 0;
@@ -1381,10 +1457,10 @@
   height: 100%;
   z-index: 100;
 }
-.ui.loading.form.segments:before {
+.ui.loading.form.segments::before {
   border-radius: 0.28571429rem;
 }
-.ui.loading.form:after {
+.ui.loading.form::after {
   position: absolute;
   content: '';
   top: 50%;
@@ -1412,25 +1488,25 @@
        Required Field
   ---------------------*/
 
-.ui.form .required.fields:not(.grouped) > .field > label:after,
-.ui.form .required.fields.grouped > label:after,
-.ui.form .required.field > label:after,
-.ui.form .required.fields:not(.grouped) > .field > .checkbox:after,
-.ui.form .required.field > .checkbox:after,
-.ui.form label.required:after {
-  margin: -0.2em 0 0 0.2em;
+.ui.form .required.fields:not(.grouped) > .field > label::after,
+.ui.form .required.fields.grouped > label::after,
+.ui.form .required.field > label::after,
+.ui.form .required.fields:not(.grouped) > .field > .checkbox::after,
+.ui.form .required.field > .checkbox::after,
+.ui.form label.required::after {
+  margin: -0.2em 0em 0em 0.2em;
   content: '*';
   color: #DB2828;
 }
-.ui.form .required.fields:not(.grouped) > .field > label:after,
-.ui.form .required.fields.grouped > label:after,
-.ui.form .required.field > label:after,
-.ui.form label.required:after {
+.ui.form .required.fields:not(.grouped) > .field > label::after,
+.ui.form .required.fields.grouped > label::after,
+.ui.form .required.field > label::after,
+.ui.form label.required::after {
   display: inline-block;
   vertical-align: top;
 }
-.ui.form .required.fields:not(.grouped) > .field > .checkbox:after,
-.ui.form .required.field > .checkbox:after {
+.ui.form .required.fields:not(.grouped) > .field > .checkbox::after,
+.ui.form .required.field > .checkbox::after {
   position: absolute;
   top: 0;
   left: 100%;
@@ -1449,9 +1525,7 @@
 .ui.inverted.form label,
 .ui.form .inverted.segment label,
 .ui.form .inverted.segment .ui.checkbox label,
-.ui.form .inverted.segment .ui.checkbox .box,
 .ui.inverted.form .ui.checkbox label,
-.ui.inverted.form .ui.checkbox .box,
 .ui.inverted.form .inline.fields > label,
 .ui.inverted.form .inline.fields .field > label,
 .ui.inverted.form .inline.fields .field > p,
@@ -1462,15 +1536,17 @@
 .ui.inverted.loading.form {
   color: #FFFFFF;
 }
-.ui.inverted.loading.form:before {
+.ui.inverted.loading.form::before {
   background: rgba(0, 0, 0, 0.85);
 }
 
 /* Inverted Field */
 .ui.inverted.form input:not([type]),
+.ui.inverted.form input[type="color"],
 .ui.inverted.form input[type="date"],
 .ui.inverted.form input[type="datetime-local"],
 .ui.inverted.form input[type="email"],
+.ui.inverted.form input[type="month"],
 .ui.inverted.form input[type="number"],
 .ui.inverted.form input[type="password"],
 .ui.inverted.form input[type="search"],
@@ -1478,12 +1554,13 @@
 .ui.inverted.form input[type="time"],
 .ui.inverted.form input[type="text"],
 .ui.inverted.form input[type="file"],
-.ui.inverted.form input[type="url"] {
+.ui.inverted.form input[type="url"],
+.ui.inverted.form input[type="week"] {
   background: #FFFFFF;
   border-color: rgba(255, 255, 255, 0.1);
-  color: rgba(0, 0, 0, 0.87);
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  color: #545454;
+  -webkit-box-shadow: 7px 7px 0px -6px #bbbbbb, -7px 7px 0px -6px #bbbbbb;
+          box-shadow: 7px 7px 0px -6px #bbbbbb, -7px 7px 0px -6px #bbbbbb;
 }
 
 /*--------------------
@@ -1494,22 +1571,22 @@
 /* Grouped Vertically */
 .ui.form .grouped.fields {
   display: block;
-  margin: 0 0 1em;
+  margin: 2px 2px 1.5em;
 }
 .ui.form .grouped.fields:last-child {
   margin-bottom: 0;
 }
 .ui.form .grouped.fields > label {
-  margin: 0 0 0.28571429rem 0;
-  color: rgba(0, 0, 0, 0.87);
-  font-size: 0.92857143em;
-  font-weight: bold;
-  text-transform: none;
+  margin: 0.5em 0;
+  color: #ADADAD;
+  font-size: 0.85714286rem;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 .ui.form .grouped.fields .field,
 .ui.form .grouped.inline.fields .field {
   display: block;
-  margin: 0.5em 0;
+  margin: 0.5em 0em;
   padding: 0;
 }
 .ui.form .grouped.inline.fields .ui.checkbox {
@@ -1530,7 +1607,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin: 0 -0.5em 1em;
+  margin: 0em -0.5em 1.5em;
 }
 .ui.form .fields > .field {
   -webkit-box-flex: 0;
@@ -1593,7 +1670,7 @@
   .ui.form:not(.unstackable) .fields:not(.unstackable) > .fields,
   .ui.form:not(.unstackable) .fields:not(.unstackable) > .field {
     width: 100%;
-    margin: 0 0 1em;
+    margin: 0 0 1.5em;
   }
 }
 
@@ -1669,14 +1746,14 @@
   ---------------------*/
 
 .ui.form .inline.fields {
-  margin: 0 0 1em;
+  margin: 2px 2px 1.5em;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 .ui.form .inline.fields .field {
   margin: 0;
-  padding: 0 1em 0 0;
+  padding: 2px 1em 2px 2px;
 }
 
 /* Inline Label */
@@ -1690,15 +1767,15 @@
   margin-top: 0;
   margin-bottom: 0;
   vertical-align: baseline;
-  font-size: 0.92857143em;
-  font-weight: bold;
-  color: rgba(0, 0, 0, 0.87);
-  text-transform: none;
+  font-size: 0.85714286rem;
+  font-weight: 900;
+  color: #ADADAD;
+  text-transform: uppercase;
 }
 
 /* Grouped Inline Label */
 .ui.form .inline.fields > label {
-  margin: 0.035714em 1em 0 0;
+  margin: 0.035714em 1em 0em 0em;
 }
 
 /* Inline Input */
@@ -1799,6 +1876,317 @@
 
 
 /*******************************
-         Site Overrides
+         Theme Overrides
 *******************************/
 
+input[type="text"],
+input[type="password"],
+textarea {
+  font-weight: 300;
+}
+input[type="text"]::-moz-selection, input[type="password"]::-moz-selection, textarea::-moz-selection {
+  background: rgba(50, 131, 247, 0.59);
+  color: white;
+}
+input[type="text"]::selection,
+input[type="password"]::selection,
+textarea::selection {
+  background: rgba(50, 131, 247, 0.59);
+  color: white;
+}
+.ui.form input:not([type]),
+.ui.form input[type="date"],
+.ui.form input[type="datetime-local"],
+.ui.form input[type="email"],
+.ui.form input[type="number"],
+.ui.form input[type="password"],
+.ui.form input[type="search"],
+.ui.form input[type="tel"],
+.ui.form input[type="time"],
+.ui.form input[type="text"],
+.ui.form input[type="file"],
+.ui.form input[type="url"] {
+  font-weight: lighter;
+}
+.ui.form .required.fields:not(.grouped) > .field > label > .label-text::after,
+.ui.form .required.fields.grouped > label > .label-text::after,
+.ui.form .required.field > label > .label-text::after,
+.ui.form .required.fields:not(.grouped) > .field > .checkbox > .label-text::after,
+.ui.form .required.field > .checkbox > .label-text::after {
+  margin: -0.2em 0em 0em 0.2em;
+  content: '*';
+  color: #ff6969;
+  display: inline-block;
+  vertical-align: top;
+}
+.ui.form .required.fields:not(.grouped) > .field > label::after,
+.ui.form .required.fields.grouped > label::after,
+.ui.form .required.field > label::after,
+.ui.form .required.fields:not(.grouped) > .field > .checkbox::after,
+.ui.form .required.field > .checkbox::after {
+  content: none !important;
+}
+.ui.form .field label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.ui.form .field label .label-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.ui.form .field label .ui.icon.hint.suus-alert-circle-que {
+  padding-left: 0.5em;
+  font-size: 16px;
+  line-height: 14px;
+}
+.ui.form .field.static {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 24px;
+}
+.ui.form .field.static .icon {
+  float: left;
+}
+.ui.form .field .ui.selection.dropdown .menu {
+  max-height: 30vh;
+}
+.ui.form .field.check_boxes {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.ui.form .field.check_boxes > label.check_boxes {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+}
+.ui.form .field.check_boxes > .ui.checkbox {
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+  padding-right: 2em;
+}
+.ui.focus.input {
+  -webkit-box-shadow: 7px 7px 0px -6px #54C8FF, -7px 7px 0px -6px #54C8FF;
+          box-shadow: 7px 7px 0px -6px #54C8FF, -7px 7px 0px -6px #54C8FF;
+}
+.ui.form .disabled.field .ui.disabled.input input {
+  color: #8d8d8d;
+}
+.ui.form .field > label {
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  pointer-events: all;
+}
+.ui.labeled.input .ui.label {
+  background: #bbbbbb;
+  color: #FFFFFF;
+}
+.ui.labeled.input .ui.label + input {
+  -webkit-box-shadow: 7px 6px 0px -6px #bbbbbb;
+          box-shadow: 7px 6px 0px -6px #bbbbbb;
+  border-bottom: 1px solid #bbbbbb;
+}
+.ui.labeled.input .ui.label + input:focus {
+  -webkit-box-shadow: 7px 6px 0px -6px #85B7D9;
+          box-shadow: 7px 6px 0px -6px #85B7D9;
+  border-bottom: 1px solid #85B7D9;
+}
+.ui.form textarea:focus {
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.110366), inset 0px 2px 4px rgba(0, 0, 0, 0.0572634);
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.110366), inset 0px 2px 4px rgba(0, 0, 0, 0.0572634);
+  border-color: rgba(187, 187, 187, 0.4);
+  outline: none;
+}
+.ui.form textarea,
+.wysihtml-div {
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.110366), inset 0px 2px 4px rgba(0, 0, 0, 0.0572634);
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.110366), inset 0px 2px 4px rgba(0, 0, 0, 0.0572634);
+  margin-bottom: 1em;
+  background: white;
+  border: 1px solid rgba(187, 187, 187, 0.4);
+  min-height: 10em;
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: normal;
+  -ms-user-select: text !important;
+      user-select: text !important;
+  -moz-user-select: text !important;
+  -khtml-user-select: text !important;
+  -webkit-user-select: text !important;
+  -o-user-select: text !important;
+  font-family: system-ui;
+  font-size: 16px;
+  line-height: 23px;
+  padding: 2.2857rem 3rem;
+}
+.ui.form .ui.grid .field:last-child,
+.ui.form .ui.grid .fields:last-child .field {
+  margin-bottom: 1.5em;
+}
+.ui.inverted.form input:not([type]),
+.ui.inverted.form input[type="date"],
+.ui.inverted.form input[type="datetime-local"],
+.ui.inverted.form input[type="email"],
+.ui.inverted.form input[type="number"],
+.ui.inverted.form input[type="password"],
+.ui.inverted.form input[type="search"],
+.ui.inverted.form input.search,
+.ui.inverted.form input[type="tel"],
+.ui.inverted.form input[type="time"],
+.ui.inverted.form input[type="text"],
+.ui.inverted.form input[type="file"],
+.ui.inverted.form input[type="url"],
+.ui.inverted.form .ui.selection.visible.dropdown > .text:not(.default),
+.ui.inverted.form .ui.toggle.checkbox > label,
+.ui.inverted.form .ui.selection.dropdown {
+  color: #F1F1F1 !important;
+}
+.ui.inverted.form .ui.toggle.checkbox input:checked ~ .box,
+.ui.inverted.form .ui.toggle.checkbox input:checked ~ label {
+  color: white !important;
+}
+.ui.inverted.form .fields.error .field label,
+.ui.inverted.form .field.error label,
+.ui.inverted.form .fields.error .field .input,
+.ui.inverted.form .field.error .input {
+  color: white !important;
+}
+.ui.inverted.form .field.error .ui.dropdown .text,
+.ui.inverted.form .field.error .ui.dropdown .dropdown.icon {
+  color: #F1F1F1;
+}
+.ui.selection.dropdown {
+  padding-right: 3rem;
+}
+.ui.selection.dropdown > .text {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.comments .ui.form .wysiwyg.comment {
+  margin-top: 0;
+}
+.comments .ui.form .wysiwyg.comment .wysihtml-div {
+  margin-bottom: -0.15rem;
+  min-height: 6em;
+  padding: 1em 1em 2em;
+  font-size: 1em;
+}
+.ui.form .field.wysiwyg {
+  margin-top: 2rem;
+}
+.ui.form .field.wysiwyg .ui.menu {
+  padding: 0 0.21428571rem;
+  margin-bottom: 0;
+  border: 1px solid rgba(151, 151, 151, 0.155486);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0572634);
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0572634);
+}
+.ui.form .field.wysiwyg .ui.menu .item {
+  margin: 0.35714286rem 0.21428571rem 0.35714286rem 0.21428571rem;
+}
+.ui.form .field.wysiwyg .ui.menu .item.spacer {
+  width: 1.42857143rem;
+}
+.field > .wysiwyg {
+  margin-top: 0.75rem !important;
+}
+.field.hidden {
+  display: none !important;
+}
+.content .ui.search.item,
+.main.menu + .sub.menu .ui.search.item.open {
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.11);
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.11);
+  padding: 1.2rem 1.5rem;
+  background: white;
+}
+.field {
+  position: relative;
+}
+.field .ui.pointing.label.hint {
+  display: none;
+}
+.field input:focus + .ui.pointing.label.hint {
+  display: block;
+  position: absolute;
+  z-index: 9999;
+}
+.field label.boolean.optional {
+  display: inline !important;
+}
+.field label.boolean.optional[for=user_remember_me] {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+.radio.ui.checkbox .collection_radio_buttons {
+  padding-right: 2em;
+}
+.field.align-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+}
+.ui.form .search-filter {
+  background: #E1E1E1;
+  margin: 0;
+  padding: 1rem;
+  color: #363636;
+}
+.ui.form .search-filter .field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+@media screen and (max-width: 768px) {
+  .ui.form .search-filter .field {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+.ui.form .search-filter .field > label {
+  color: #363636;
+  padding-right: 0.75rem;
+}
+.ui.form .search-filter .field > label:not(:first-of-type) {
+  padding-left: 3rem;
+}
+.ui.form .search-filter .ui.dropdown {
+  -webkit-box-shadow: 7px 7px 0px -6px #999, -7px 7px 0px -6px #999;
+          box-shadow: 7px 7px 0px -6px #999, -7px 7px 0px -6px #999;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  width: auto;
+  -ms-flex-preferred-size: 15rem;
+      flex-basis: 15rem;
+  max-height: 2rem;
+}
+.ui.form .search-filter .ui.dropdown > .text {
+  color: #999;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-right: 2rem;
+}
